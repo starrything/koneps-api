@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!--로그 파일 저장 위치-->
+    <!-- for Windows -->
+    <!--<property name="LOG_FILE" value="/app/logs/client.log"/>-->
+    <!-- for Linux -->
+    <property name="LOG_FILE" value="./app/logs/client.log"/>
+    <!-- for Windows Server -->
+    <!--<property name="LOG_FILE" value="/framework/logs/client.log"/>-->
+
+    <appender name="ROLLING-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="me.actuator" level="debug" additivity="false">
+        <!-- ref="appender name 지정" -->
+        <!--
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROLLING-FILE"/>
+        -->
+    </logger>
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="INFO">
+        <appender-ref ref="ROLLING-FILE" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="jdbc.sqltiming" level="OFF"/>
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="DEBUG"/>
+    <logger name="jdbc.connection" level="OFF"/>
+    <logger name="com.iljin.apiServer" level="INFO">
+        <appender-ref ref="ROLLING-FILE" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROLLING-FILE"/>
+    </root>
+
+</configuration>
