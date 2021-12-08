@@ -216,6 +216,7 @@ public class OpenapiServiceImpl implements OpenapiService {
                                 c.get("prearngPrceDcsnMthdNm"),
                                 c.get("totPrdprcNum"),
                                 c.get("drwtPrdprcNum"),
+                                c.get("asignBdgtAmt"),
                                 c.get("presmptPrce"),
                                 c.get("opengPlce"),
                                 c.get("dcmtgOprtnDt"),

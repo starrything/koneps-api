@@ -107,6 +107,10 @@ public class BidNotice {
     @Column(name = "drwt_prdprc_num")
     String drwtPrdprcNum;
 
+    /*예산금액*/
+    @Column(name = "asign_bdgt_amt")
+    String asignBdgtAmt;
+
     /*추정가격*/
     @Column(name = "presmpt_prce")
     String presmptPrce;
@@ -180,7 +184,7 @@ public class BidNotice {
     LocalDateTime interfaceDt;
 
     @Builder
-    public BidNotice(String bidNtceNo, String bidNtceOrd, String reNtceYn, String rgstTyNm, String ntceKindNm, String bidNtceDt, String bidNtceNm, String ntceInsttCd, String ntceInsttNm, String dminsttCd, String dminsttNm, String bidMethdNm, String cntrctCnclsMthdNm, String ntceInsttOfclNm, String ntceInsttOfclTelNo, String ntceInsttOfclEmailAdrs, String exctvNm, String bidGeginDt, String bidClseDt, String opengDt, String prearngPrceDcsnMthdNm, String totPrdprcNum, String drwtPrdprcNum, String presmptPrce, String opengPlce, String dcmtgOprtnDt, String dcmtgOprtnPlce, String bidNtceDtlUrl, String bidNtceUrl, String crdtrNm, String cmmnSpldmdMethdNm, String sucsfbidMthdCd, String sucsfbidMthdNm, String dsgntCmptYn, String linkInsttNm, String dminsttOfclEmailAdrs, String rbidOpengDt, String indstrytyLmtYn, String rgstDt, String chgDt, LocalDateTime interfaceDt) {
+    public BidNotice(String bidNtceNo, String bidNtceOrd, String reNtceYn, String rgstTyNm, String ntceKindNm, String bidNtceDt, String bidNtceNm, String ntceInsttCd, String ntceInsttNm, String dminsttCd, String dminsttNm, String bidMethdNm, String cntrctCnclsMthdNm, String ntceInsttOfclNm, String ntceInsttOfclTelNo, String ntceInsttOfclEmailAdrs, String exctvNm, String bidGeginDt, String bidClseDt, String opengDt, String prearngPrceDcsnMthdNm, String totPrdprcNum, String drwtPrdprcNum, String asignBdgtAmt, String presmptPrce, String opengPlce, String dcmtgOprtnDt, String dcmtgOprtnPlce, String bidNtceDtlUrl, String bidNtceUrl, String crdtrNm, String cmmnSpldmdMethdNm, String sucsfbidMthdCd, String sucsfbidMthdNm, String dsgntCmptYn, String linkInsttNm, String dminsttOfclEmailAdrs, String rbidOpengDt, String indstrytyLmtYn, String rgstDt, String chgDt, LocalDateTime interfaceDt) {
         this.bidNtceNo = bidNtceNo;
         this.bidNtceOrd = bidNtceOrd;
         this.reNtceYn = reNtceYn;
@@ -204,6 +208,7 @@ public class BidNotice {
         this.prearngPrceDcsnMthdNm = prearngPrceDcsnMthdNm;
         this.totPrdprcNum = totPrdprcNum;
         this.drwtPrdprcNum = drwtPrdprcNum;
+        this.asignBdgtAmt = asignBdgtAmt;
         this.presmptPrce = presmptPrce;
         this.opengPlce = opengPlce;
         this.dcmtgOprtnDt = dcmtgOprtnDt;

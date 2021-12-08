@@ -60,6 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/docs/api-guide.html").permitAll()
                 .antMatchers("/api/code").permitAll()
                 .antMatchers("/api/interface/**/**").permitAll()
+                .antMatchers("/api/g2b/**/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .logout()
