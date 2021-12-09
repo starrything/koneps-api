@@ -29,16 +29,25 @@ public class OpenapiServiceImpl implements OpenapiService {
         String searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
         String searchDateTo = dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
 
-        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/HrcspSsstndrdInfoService/getPublicPrcureThngInfoServcPPSSrch"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8")); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
-        //urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8")); /*공공데이터포털에서 받은 인증키*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryDiv", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*검색하고자하는 조회구분 1. 등록일시 2. 사전규격등록번호 3. 변경일시*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryBgnDt", "UTF-8") + "=" + URLEncoder.encode(searchDateFr, "UTF-8")); /*검색하고자하는 조회시작일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryEndDt", "UTF-8") + "=" + URLEncoder.encode(searchDateTo, "UTF-8")); /*검색하고자하는 조회종료일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
-        //urlBuilder.append("&" + URLEncoder.encode("bfSpecRgstNo","UTF-8") + "=" + URLEncoder.encode("356759", "UTF-8")); /*검색하고자하는 사전규격등록번호 조회구분이 2인 경우 필수*/
-        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*오픈API 리턴 타입을 JSON으로 받고 싶을 경우 'json' 으로 지정*/
+        /*URL*/
+        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/HrcspSsstndrdInfoService/getPublicPrcureThngInfoServcPPSSrch");
+        /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8"));
+        /*한 페이지 결과 수*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8"));
+        /*페이지 번호*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
+        /*검색하고자하는 조회구분 1. 등록일시 2. 사전규격등록번호 3. 변경일시*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryDiv", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
+        /*검색하고자하는 조회시작일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryBgnDt", "UTF-8") + "=" + URLEncoder.encode(searchDateFr, "UTF-8"));
+        /*검색하고자하는 조회종료일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryEndDt", "UTF-8") + "=" + URLEncoder.encode(searchDateTo, "UTF-8"));
+        /*오픈API 리턴 타입을 JSON으로 받고 싶을 경우 'json' 으로 지정*/
+        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
+
+        /*검색하고자하는 SW사업대상여부 Y/N*/
+        urlBuilder.append("&" + URLEncoder.encode("swBizObjYn", "UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8"));
 
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -134,16 +143,29 @@ public class OpenapiServiceImpl implements OpenapiService {
         String searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
         String searchDateTo = dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
 
-        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/BidPublicInfoService02/getBidPblancListInfoServc"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8")); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
-        //urlBuilder.append("&" + URLEncoder.encode("ServiceKey","UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8")); /*공공데이터포털에서 받은 인증키*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryDiv", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*검색하고자하는 조회구분 1. 등록일시 2. 사전규격등록번호 3. 변경일시*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryBgnDt", "UTF-8") + "=" + URLEncoder.encode(searchDateFr, "UTF-8")); /*검색하고자하는 조회시작일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
-        urlBuilder.append("&" + URLEncoder.encode("inqryEndDt", "UTF-8") + "=" + URLEncoder.encode(searchDateTo, "UTF-8")); /*검색하고자하는 조회종료일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
-        //urlBuilder.append("&" + URLEncoder.encode("bfSpecRgstNo","UTF-8") + "=" + URLEncoder.encode("356759", "UTF-8")); /*검색하고자하는 사전규격등록번호 조회구분이 2인 경우 필수*/
-        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*오픈API 리턴 타입을 JSON으로 받고 싶을 경우 'json' 으로 지정*/
+        /*URL*/
+        StringBuilder urlBuilder = new StringBuilder("http:///apis.data.go.kr/1230000/BidPublicInfoService02/getBidPblancListInfoServcPPSSrch");
+        /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8"));
+        /*한 페이지 결과 수*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8"));
+        /*페이지 번호*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
+        /*검색하고자하는 조회구분 1. 등록일시 2. 사전규격등록번호 3. 변경일시*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryDiv", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
+        /*검색하고자하는 조회시작일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryBgnDt", "UTF-8") + "=" + URLEncoder.encode(searchDateFr, "UTF-8"));
+        /*검색하고자하는 조회종료일시 'YYYYMMDDHHMM' 조회구분이 1인 경우 필수*/
+        urlBuilder.append("&" + URLEncoder.encode("inqryEndDt", "UTF-8") + "=" + URLEncoder.encode(searchDateTo, "UTF-8"));
+        /*오픈API 리턴 타입을 JSON으로 받고 싶을 경우 'json' 으로 지정*/
+        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8"));
+
+        /*검색하고자하는 국제구분코드 국내:1, 국제:2(방위사업청 연계건의 경우 아래 내용 참고하여 검색) 국내/시설 입찰 공고일 경우 : 1, 국외 입찰 공고일 경우 : 2*/
+        urlBuilder.append("&" + URLEncoder.encode("intrntnlDivCd", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
+        /*입찰마감건을 제외하고 검색하고자 하는 경우 Y*/
+        urlBuilder.append("&" + URLEncoder.encode("bidClseExcpYn", "UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8"));
+        /*검색하고자하는 업종명, ※ 업종명 일부 입력시에도 조회 가능(방위사업청 연계건의 경우 : 면허제한목록(lcnsLmttList) 내 업종명으로 검색)*/
+        urlBuilder.append("&" + URLEncoder.encode("indstrytyNm", "UTF-8") + "=" + URLEncoder.encode("소프트웨어", "UTF-8"));
 
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
