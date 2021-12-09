@@ -88,5 +88,5 @@ bootJar {
 		into 'static/docs'
 	}
 	extension = "jar"
-	archiveFileName = "api.$extension"
+	archiveFileName = "koneps-api.$extension"
 }
