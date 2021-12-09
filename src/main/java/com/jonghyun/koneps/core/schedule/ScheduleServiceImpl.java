@@ -100,12 +100,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public void getBeforeSpecification() throws IOException {
-        openapiService.callApiForBeforeSpecification();
+        openapiService.callApiForBeforeSpecification("", "");
     }
 
     @Override
     public void getBidNotice() throws IOException {
-        openapiService.callApiForBidNotice();
+        openapiService.callApiForBidNotice("", "");
     }
 
 }

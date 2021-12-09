@@ -1,6 +1,7 @@
 package com.jonghyun.koneps.api.data.openapi;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.netty.util.internal.StringUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,17 @@ public class OpenapiServiceImpl implements OpenapiService {
 
     @Override
     @Modifying
-    public void callApiForBeforeSpecification() throws IOException {
+    public void callApiForBeforeSpecification(String paramDateFrom, String paramDateTo) throws IOException {
         LocalDateTime dateFrom = LocalDateTime.now().minusHours(2);
         LocalDateTime dateTo = LocalDateTime.now();
-        String searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
-        String searchDateTo = dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        String searchDateFr = paramDateFrom;
+        if(StringUtil.isNullOrEmpty(searchDateFr)) {
+            searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        }
+        String searchDateTo = paramDateTo;
+        if(StringUtil.isNullOrEmpty(searchDateTo)) {
+            dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        }
 
         /*URL*/
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/HrcspSsstndrdInfoService/getPublicPrcureThngInfoServcPPSSrch");
@@ -137,14 +144,20 @@ public class OpenapiServiceImpl implements OpenapiService {
 
     @Override
     @Modifying
-    public void callApiForBidNotice() throws IOException {
+    public void callApiForBidNotice(String paramDateFrom, String paramDateTo) throws IOException {
         LocalDateTime dateFrom = LocalDateTime.now().minusHours(2);
         LocalDateTime dateTo = LocalDateTime.now();
-        String searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
-        String searchDateTo = dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        String searchDateFr = paramDateFrom;
+        if(StringUtil.isNullOrEmpty(searchDateFr)) {
+            searchDateFr = dateFrom.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        }
+        String searchDateTo = paramDateTo;
+        if(StringUtil.isNullOrEmpty(searchDateTo)) {
+            dateTo.format(DateTimeFormatter.ofPattern("YYYYMMddHHmm"));
+        }
 
         /*URL*/
-        StringBuilder urlBuilder = new StringBuilder("http:///apis.data.go.kr/1230000/BidPublicInfoService02/getBidPblancListInfoServcPPSSrch");
+        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/BidPublicInfoService02/getBidPblancListInfoServcPPSSrch");
         /*Service Key*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8"));
         /*한 페이지 결과 수*/

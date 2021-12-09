@@ -5,6 +5,6 @@ import java.io.IOException;
 
 @Transactional
 public interface OpenapiService {
-    void callApiForBeforeSpecification() throws IOException;
-    void callApiForBidNotice() throws IOException;
+    void callApiForBeforeSpecification(String paramDateFrom, String paramDateTo) throws IOException;
+    void callApiForBidNotice(String paramDateFrom, String paramDateTo) throws IOException;
 }

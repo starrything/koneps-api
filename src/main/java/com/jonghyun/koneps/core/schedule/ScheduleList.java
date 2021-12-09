@@ -31,7 +31,8 @@ public class ScheduleList {
      * */
     @Scheduled(fixedRate = 7200000)
     public void getBeforeSpecification() throws IOException {
-        scheduleService.getBeforeSpecification();
+        //TODO: build 시 아래 주석 해제
+        //scheduleService.getBeforeSpecification();
     }
 
     /**
@@ -41,6 +42,7 @@ public class ScheduleList {
      * */
     @Scheduled(fixedRate = 7200000)
     public void getBidNotice() throws IOException {
-        scheduleService.getBidNotice();
+        //TODO: build 시 아래 주석 해제
+        //scheduleService.getBidNotice();
     }
 }
