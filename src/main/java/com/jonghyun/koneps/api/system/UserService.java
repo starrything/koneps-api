@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 
+@Transactional
 public interface UserService {
     @Modifying
-    @Transactional
     ResponseEntity<UserDto> createUser(UserDto userDto);
 
     List<UserDto> getUserList();
@@ -25,18 +25,17 @@ public interface UserService {
     ResponseEntity<String> resetPassword(UserDto userDto);
 
     @Modifying
-    @Transactional
     ResponseEntity<UserDto> updateUser(UserDto userDto);
 
     List<Map<String, Object>> searchUserList(String keyword);
 
     @Modifying
-    @Transactional
     boolean deleteUser(String username);
 
     ResponseEntity<UserDto> getUserDetail(String username);
 
     @Modifying
-    @Transactional
     ResponseEntity<UserDto> editUser(UserDto userDto);
+
+    ResponseEntity<UserDto> registerUser(UserDto userDto);
 }

@@ -15,6 +15,11 @@ import java.util.Map;
 public class UserController {
     private final UserService userService;
 
+    @PostMapping("/register")
+    public ResponseEntity<UserDto> registration(@RequestBody UserDto userDto) {
+        return userService.registerUser(userDto);
+    }
+
     @PostMapping
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
         return userService.createUser(userDto);
@@ -56,4 +61,5 @@ public class UserController {
     public boolean deleteUser(@RequestParam String username) {
         return userService.deleteUser(username);
     }
+
 }

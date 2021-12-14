@@ -130,13 +130,14 @@ public class User {
     }
 
     @Builder
-    public User newUser(String username, String password, String firstName, String lastName, String tel, String email, String address1, String address2, int isActive, String createdBy, LocalDateTime creationDate) {
+    public User newUser(String username, String password, String firstName, String lastName, String tel, String email, List<UserRole> roles, String address1, String address2, int isActive, String createdBy, LocalDateTime creationDate) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;
         this.email = email;
+        this.roles = roles;
         this.address1 = address1;
         this.address2 = address2;
         this.isActive = isActive;

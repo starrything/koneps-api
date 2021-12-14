@@ -22,8 +22,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBeforeSpec() throws IOException {
         //scheduleService.getBeforeSpecification();
 
-        String dateFrom = "202112010000";
-        String dateTo = "202112082359";
+        String dateFrom = "202112090000";
+        String dateTo = "202112092359";
         openapiService.callApiForBeforeSpecification(dateFrom, dateTo);
     }
 
@@ -31,8 +31,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBidNotice() throws IOException {
         //scheduleService.getBidNotice();
 
-        String dateFrom = "202112080000";
-        String dateTo = "202112082359";
+        String dateFrom = "202112090000";
+        String dateTo = "202112092359";
         openapiService.callApiForBidNotice(dateFrom, dateTo);
     }
 }

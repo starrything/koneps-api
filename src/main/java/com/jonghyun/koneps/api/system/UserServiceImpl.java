@@ -60,20 +60,6 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("User Name(" + userDto.getUsername() + ") is already registered...");
         });
         try {
-            User newUser = new User();
-            newUser.newUser(userDto.getUsername(),
-                    passwordEncoder.encode(userDto.getPassword()),
-                    userDto.getFirstName(),
-                    userDto.getLastName(),
-                    userDto.getTel(),
-                    userDto.getEmail(),
-                    userDto.getAddress1(),
-                    userDto.getAddress2(),
-                    userDto.getIsActive(),
-                    loginId,
-                    LocalDateTime.now());
-            userRepository.save(newUser);
-
             String finalLoginId = loginId;
             userRepository.findByUsername(userDto.getUsername()).ifPresent(c -> {
                 List<UserRole> newRoles = new ArrayList<>();
@@ -88,6 +74,22 @@ public class UserServiceImpl implements UserService {
 
                     newRoles.add(userRole);
                 }
+
+            User newUser = new User();
+            newUser.newUser(
+                    userDto.getUsername(),
+                    passwordEncoder.encode(userDto.getPassword()),
+                    userDto.getFirstName(),
+                    userDto.getLastName(),
+                    userDto.getTel(),
+                    userDto.getEmail(),
+                    newRoles,
+                    userDto.getAddress1(),
+                    userDto.getAddress2(),
+                    userDto.getIsActive(),
+                    finalLoginId,
+                    LocalDateTime.now());
+            userRepository.save(newUser);
             });
 
         } catch (DataIntegrityViolationException e) {
@@ -356,6 +358,53 @@ public class UserServiceImpl implements UserService {
                     newRoles.add(userRole);
                 }
             });
+
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+        }
+
+        return new ResponseEntity<>(userDto, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<UserDto> registerUser(UserDto userDto) {
+        String loginId = util.getLoginId();
+        if (StringUtils.isBlank(loginId)) {
+            loginId = "system";
+        }
+
+        String email = userDto.getEmail();
+        String username = email.substring(0, email.indexOf("@"));
+        userRepository.findByUsername(username).ifPresent(c -> {
+            throw new RuntimeException("User Name(" + username + ") is already registered...");
+        });
+
+        try {
+            UserRole userRole = new UserRole();
+            userRole.newUserRole(username,
+                    "USER",
+                    loginId,
+                    LocalDateTime.now());
+            userRoleRepository.save(userRole);
+
+            List<UserRole> newRoles = new ArrayList<>();
+            newRoles.add(userRole);
+
+            User newUser = new User();
+            newUser.newUser(
+                    username,
+                    passwordEncoder.encode(userDto.getPassword()),
+                    userDto.getName(),
+                    "",
+                    "",
+                    userDto.getEmail(),
+                    newRoles,
+                    "",
+                    "",
+                    1,
+                    loginId,
+                    LocalDateTime.now());
+            userRepository.save(newUser);
 
         } catch (DataIntegrityViolationException e) {
             e.printStackTrace();

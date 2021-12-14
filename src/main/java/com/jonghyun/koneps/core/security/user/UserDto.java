@@ -37,6 +37,9 @@ public class UserDto implements Serializable {
     String connectUrl;
     LocalDateTime creationDate;
 
+    /* Sign up page */
+    String name;
+
     public UserDto(String username, String password, String firstName, String lastName, String tel, String email, String address1, String address2, List<String> roles) {
         this.username = username;
         this.password = password;
