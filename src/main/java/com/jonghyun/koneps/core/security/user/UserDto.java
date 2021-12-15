@@ -12,7 +12,7 @@ import java.util.List;
 public class UserDto implements Serializable {
     String username;
     String password;
-    int isActive;
+    int isValid;
     String firstName;
     String lastName;
     String tel;
@@ -56,9 +56,9 @@ public class UserDto implements Serializable {
 
     }
 
-    public UserDto editUser(String username, int isActive, String firstName, String lastName, String tel, String email, String address1, String address2) {
+    public UserDto editUser(String username, int isValid, String firstName, String lastName, String tel, String email, String address1, String address2) {
         this.username = username;
-        this.isActive = isActive;
+        this.isValid = isValid;
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;

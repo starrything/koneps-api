@@ -75,7 +75,7 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Override
     public String createDashboard(DashboardDto dashboardDto) {
-        String dashboardId = seqService.getSequenceBySeqType("dashboard");
+        String dashboardId = seqService.getSequenceBySeqPrefix("dashboard");
         String dashboardTitle = dashboardDto.getDashboardTitle();
         List<Map<String, Object>> dashboardLayout = dashboardDto.getDashboardLayout();
 
@@ -142,7 +142,7 @@ public class DashboardServiceImpl implements DashboardService {
                     dashboardChartRepository.save(dashboardChart);
                 }
             } else if ("component".equals(builderType)) {
-                String componentId = seqService.getSequenceBySeqType("component");
+                String componentId = seqService.getSequenceBySeqPrefix("component");
                 String componentType = feature;
                 DashboardComponent dashboardComponent = new DashboardComponent(
                         dashboardId,
@@ -329,7 +329,7 @@ public class DashboardServiceImpl implements DashboardService {
                     dashboardChartRepository.save(dashboardChart);
                 }
             } else if ("component".equals(builderType)) {
-                String componentId = seqService.getSequenceBySeqType("component");
+                String componentId = seqService.getSequenceBySeqPrefix("component");
                 String componentType = feature;
                 DashboardComponent dashboardComponent = new DashboardComponent(
                         dashboardId,

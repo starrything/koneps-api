@@ -20,13 +20,13 @@ public class Role {
     @Column(name = "created_by")
     String createdBy;
 
-    @Column(name = "creation_date")
+    @Column(name = "creation_dt")
     LocalDateTime creationDate;
 
     @Column(name = "modified_by")
     String modifiedBy;
 
-    @Column(name = "modified_date")
+    @Column(name = "modified_dt")
     LocalDateTime modifiedDate;
 
     @OneToMany

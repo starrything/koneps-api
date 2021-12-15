@@ -73,8 +73,8 @@ public class ChartServiceImpl implements ChartService {
     @Override
     public boolean createNewChart(ChartDto chartDto) {
         String chartType = chartDto.getChartType();
-        String chartId = seqService.getSequenceBySeqType("chart");
-        String queryId = seqService.getSequenceBySeqType("query");
+        String chartId = seqService.getSequenceBySeqPrefix("chart");
+        String queryId = seqService.getSequenceBySeqPrefix("query");
 
         String queryRowLimit = chartDto.getQueryRowLimit();
         String querySingleSeries = chartDto.getQuerySingleSeries();    // bubble
@@ -489,7 +489,7 @@ public class ChartServiceImpl implements ChartService {
     public boolean updateChart(ChartDto chartDto) {
         String chartId = chartDto.getChartId();
         String chartType = chartDto.getChartType();
-        String queryId = seqService.getSequenceBySeqType("query");
+        String queryId = seqService.getSequenceBySeqPrefix("query");
 
         String queryRowLimit = chartDto.getQueryRowLimit();
         String querySingleSeries = chartDto.getQuerySingleSeries();    // bubble

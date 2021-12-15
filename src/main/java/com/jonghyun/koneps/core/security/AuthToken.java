@@ -30,7 +30,7 @@ public class AuthToken {
     private String loginJobGradeNm;
     private String token;
     private Collection authorities;
-    private int isActive;
+    private int isValid;
 
     @Builder
     public AuthToken(String username,
@@ -42,7 +42,7 @@ public class AuthToken {
                      String address2,
                      String token,
                      Collection authorities,
-                     int isActive) {
+                     int isValid) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,7 +52,7 @@ public class AuthToken {
         this.address2 = address2;
         this.token = token;
         this.authorities = authorities;
-        this.isActive = isActive;
+        this.isValid = isValid;
     }
     /*@Builder
     public AuthToken(String userName,

@@ -10,11 +10,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class RolePermissionKey implements Serializable {
     private String role;
-    private String permission;
+    private String permissionCd;
 
     @Builder
-    public RolePermissionKey(String role, String permission) {
+    public RolePermissionKey(String role, String permissionCd) {
         this.role = role;
-        this.permission = permission;
+        this.permissionCd = permissionCd;
     }
 }

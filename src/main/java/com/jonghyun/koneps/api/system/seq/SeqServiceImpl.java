@@ -14,9 +14,9 @@ public class SeqServiceImpl implements SeqService {
     private final SeqRepository seqRepository;
 
     @Override
-    public String getSequenceBySeqType(String seqType) {
+    public String getSequenceBySeqPrefix(String seqType) {
         StringBuilder sequenceId = new StringBuilder();
-        Optional<Seq> seq = seqRepository.findBySeqType(seqType);
+        Optional<Seq> seq = seqRepository.findBySeqPrefix(seqType);
 
         String loginId = util.getLoginId();
         if(seq.isPresent()) {

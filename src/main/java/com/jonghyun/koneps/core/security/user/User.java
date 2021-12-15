@@ -39,8 +39,8 @@ public class User {
     @Column(name = "address2")
     String address2;
 
-    @Column(name = "is_active")
-    int isActive;
+    @Column(name = "is_valid")
+    int isValid;
 
     @Column(name = "attribute1")
     String attribute1;
@@ -60,13 +60,13 @@ public class User {
     @Column(name = "created_by")
     String createdBy;
 
-    @Column(name = "creation_date")
+    @Column(name = "creation_dt")
     LocalDateTime creationDate;
 
     @Column(name = "modified_by")
     String modifiedBy;
 
-    @Column(name = "modified_date")
+    @Column(name = "modified_dt")
     LocalDateTime modifiedDate;
 
     @OneToMany
@@ -87,13 +87,13 @@ public class User {
         return this;
     }
 
-    public User updateUserDetail(String username, String firstName, String lastName, String tel, String email, int isActive) {
+    public User updateUserDetail(String username, String firstName, String lastName, String tel, String email, int isValid) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;
         this.email = email;
-        this.isActive = isActive;
+        this.isValid = isValid;
 
         return this;
     }
@@ -109,14 +109,14 @@ public class User {
         return this;
     }
 
-    public User editUser(String firstName, String lastName, String tel, String email, String address1, String address2, int isActive, String modifiedBy, LocalDateTime modifiedDate) {
+    public User editUser(String firstName, String lastName, String tel, String email, String address1, String address2, int isValid, String modifiedBy, LocalDateTime modifiedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;
         this.email = email;
         this.address1 = address1;
         this.address2 = address2;
-        this.isActive = isActive;
+        this.isValid = isValid;
         this.modifiedBy = modifiedBy;
         this.modifiedDate = modifiedDate;
 
@@ -130,7 +130,7 @@ public class User {
     }
 
     @Builder
-    public User newUser(String username, String password, String firstName, String lastName, String tel, String email, List<UserRole> roles, String address1, String address2, int isActive, String createdBy, LocalDateTime creationDate) {
+    public User newUser(String username, String password, String firstName, String lastName, String tel, String email, List<UserRole> roles, String address1, String address2, int isValid, String createdBy, LocalDateTime creationDate) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -140,7 +140,7 @@ public class User {
         this.roles = roles;
         this.address1 = address1;
         this.address2 = address2;
-        this.isActive = isActive;
+        this.isValid = isValid;
         this.createdBy = createdBy;
         this.creationDate = creationDate;
 

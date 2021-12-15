@@ -7,5 +7,5 @@ import java.util.Optional;
 
 @Repository
 public interface SeqRepository extends JpaRepository<Seq, String> {
-    Optional<Seq> findBySeqType(String dataset);
+    Optional<Seq> findBySeqPrefix(String dataset);
 }

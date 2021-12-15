@@ -4,5 +4,5 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface SeqService {
-    String getSequenceBySeqType(String type);
+    String getSequenceBySeqPrefix(String type);
 }

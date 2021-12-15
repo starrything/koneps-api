@@ -26,33 +26,33 @@ public class LoginHistory {
             generator = "LOGIN_HISTORY_GEN")//Oracle*/
     String logId;
 
-    @Column(name = "connect_id")
-    String connectId;
+    @Column(name = "user_id")
+    String userId;
 
-    @Column(name = "connect_ip")
-    String connectIp;
+    @Column(name = "access_addr")
+    String accessAddr;
 
     @Column(name = "connect_method")
     String connectMethod;
 
-    @Column(name = "connect_error")
-    String connectError;
+    @Column(name = "request_error")
+    String requestError;
 
-    @Column(name = "connect_url")
-    String connectUrl;
+    @Column(name = "requested_api")
+    String requestedApi;
 
     @CreatedDate
-    @Column(name = "creation_date")
+    @Column(name = "creation_dt")
     LocalDateTime creationDate;
 
     @Builder
-    public LoginHistory(String logId, String connectId, String connectIp, String connectMethod, String connectError, String connectUrl, LocalDateTime creationDate) {
+    public LoginHistory(String logId, String userId, String accessAddr, String connectMethod, String requestError, String requestedApi, LocalDateTime creationDate) {
         this.logId = logId;
-        this.connectId = connectId;
-        this.connectIp = connectIp;
+        this.userId = userId;
+        this.accessAddr = accessAddr;
         this.connectMethod = connectMethod;
-        this.connectError = connectError;
-        this.connectUrl = connectUrl;
+        this.requestError = requestError;
+        this.requestedApi = requestedApi;
         this.creationDate = creationDate;
     }
 }

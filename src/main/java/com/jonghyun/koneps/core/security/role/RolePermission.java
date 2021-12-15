@@ -18,19 +18,19 @@ public class RolePermission {
     String roleName;
 
     @Id
-    @Column(name = "permission")
-    String permission;
+    @Column(name = "permission_cd")
+    String permissionCd;
 
     @Column(name = "created_by")
     String createdBy;
 
-    @Column(name = "creation_date")
+    @Column(name = "creation_dt")
     LocalDateTime creationDate;
 
     @Column(name = "modified_by")
     String modifiedBy;
 
-    @Column(name = "modified_date")
+    @Column(name = "modified_dt")
     LocalDateTime modifiedDate;
 
     @ManyToOne
@@ -38,9 +38,9 @@ public class RolePermission {
     Role role;
 
     @Builder
-    public RolePermission(String roleName, String permission, Role role) {
+    public RolePermission(String roleName, String permissionCd, Role role) {
         this.roleName = roleName;
-        this.permission = permission;
+        this.permissionCd = permissionCd;
         this.role = role;
     }
 }

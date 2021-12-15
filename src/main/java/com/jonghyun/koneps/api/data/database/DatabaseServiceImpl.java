@@ -84,7 +84,7 @@ public class DatabaseServiceImpl implements DatabaseService {
         String password = databaseDto.password;
         String database = databaseDto.database;
 
-        String databaseId = seqService.getSequenceBySeqType("database");
+        String databaseId = seqService.getSequenceBySeqPrefix("database");
 
         StringBuilder datasource = new StringBuilder();
         datasource.append(type);

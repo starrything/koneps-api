@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name = "tb_seq")
+@Table(name = "tb_sequence")
 public class Seq {
     @Id
-    @Column(name = "seq_type")
-    String seqType;
+    @Column(name = "seq_prefix")
+    String seqPrefix;
 
     @Column(name = "seq")
     String seq;
@@ -21,17 +21,17 @@ public class Seq {
     @Column(name = "created_by")
     String createdBy;
 
-    @Column(name = "creation_date")
+    @Column(name = "creation_dt")
     LocalDateTime creationDate;
 
     @Column(name = "modified_by")
     String modifiedBy;
 
-    @Column(name = "modified_date")
+    @Column(name = "modified_dt")
     LocalDateTime modifiedDate;
 
-    public Seq newSeq(String seqType, String seq, String createdBy, LocalDateTime creationDate) {
-        this.seqType = seqType;
+    public Seq newSeq(String seqPrefix, String seq, String createdBy, LocalDateTime creationDate) {
+        this.seqPrefix = seqPrefix;
         this.seq = seq;
         this.createdBy = createdBy;
         this.creationDate = creationDate;
@@ -39,8 +39,8 @@ public class Seq {
         return this;
     }
 
-    public Seq editSeq(String seqType, String seq, String createdBy, LocalDateTime creationDate, String modifiedBy, LocalDateTime modifiedDate) {
-        this.seqType = seqType;
+    public Seq editSeq(String seqPrefix, String seq, String createdBy, LocalDateTime creationDate, String modifiedBy, LocalDateTime modifiedDate) {
+        this.seqPrefix = seqPrefix;
         this.seq = seq;
         this.createdBy = createdBy;
         this.creationDate = creationDate;

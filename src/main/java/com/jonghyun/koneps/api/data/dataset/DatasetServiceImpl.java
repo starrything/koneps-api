@@ -197,7 +197,7 @@ public class DatasetServiceImpl implements DatasetService {
         }
 
         /* Table PK */
-        String datasetId = seqService.getSequenceBySeqType("dataset");
+        String datasetId = seqService.getSequenceBySeqPrefix("dataset");
 
         String loginId = util.getLoginId();
         Dataset newDataset = new Dataset();

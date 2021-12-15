@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService {
                     newRoles,
                     userDto.getAddress1(),
                     userDto.getAddress2(),
-                    userDto.getIsActive(),
+                    userDto.getIsValid(),
                     finalLoginId,
                     LocalDateTime.now());
             userRepository.save(newUser);
@@ -147,7 +147,7 @@ public class UserServiceImpl implements UserService {
                          * */
                         String clientIp = this.getClientIp(request);
 
-                        String logId = seqService.getSequenceBySeqType("Log");
+                        String logId = seqService.getSequenceBySeqPrefix("Log");
                         /* login success */
                         LoginHistory loginHistory = new LoginHistory(
                                 logId,
@@ -185,7 +185,7 @@ public class UserServiceImpl implements UserService {
                             , null
                             , 0), HttpStatus.UNAUTHORIZED));
         } catch (AuthenticationException e) {
-            String logId = seqService.getSequenceBySeqType("Log");
+            String logId = seqService.getSequenceBySeqPrefix("Log");
             LoginHistory loginHistory = new LoginHistory(
                     logId,
                     userDto.getUsername(),
@@ -277,7 +277,7 @@ public class UserServiceImpl implements UserService {
                     map.put("lastName", user.getLastName());
                     map.put("username", user.getUsername());
                     map.put("email", user.getEmail());
-                    map.put("isActive", user.getIsActive() == 1 ? "True" : "False");
+                    map.put("isValid", user.getIsValid() == 1 ? "True" : "False");
                     map.put("modifiedDate", modifiedDate);
                     map.put("role", userRoles.toString());
 
@@ -304,7 +304,7 @@ public class UserServiceImpl implements UserService {
             userDto.setUsername(username);
             userDto.setFirstName(c.getFirstName());
             userDto.setLastName(c.getLastName());
-            userDto.setIsActive(c.getIsActive());
+            userDto.setIsValid(c.getIsValid());
             userDto.setTel(c.getTel());
             userDto.setEmail(c.getEmail());
             userDto.setAddress1(c.getAddress1());
@@ -338,7 +338,7 @@ public class UserServiceImpl implements UserService {
                         userDto.getEmail(),
                         userDto.getAddress1(),
                         userDto.getAddress2(),
-                        userDto.getIsActive(),
+                        userDto.getIsValid(),
                         finalLoginId,
                         LocalDateTime.now());
                 userRepository.save(c);
@@ -408,6 +408,7 @@ public class UserServiceImpl implements UserService {
 
         } catch (DataIntegrityViolationException e) {
             e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
         }
 
         return new ResponseEntity<>(userDto, HttpStatus.OK);
@@ -434,7 +435,7 @@ public class UserServiceImpl implements UserService {
                 user.getAddress2(),
                 session.getId(),
                 authList,
-                user.getIsActive());
+                user.getIsValid());
     }
 
     public static String getClientIp(HttpServletRequest request) {
