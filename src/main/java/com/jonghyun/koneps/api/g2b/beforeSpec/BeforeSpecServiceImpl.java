@@ -30,8 +30,8 @@ public class BeforeSpecServiceImpl implements BeforeSpecService {
                     map.put("dlvrTmlmtDt", beforeSpec.getDlvrTmlmtDt());
                     map.put("asignBdgtAmt", beforeSpec.getAsignBdgtAmt());
                     map.put("dlvrDaynum", beforeSpec.getDlvrDaynum());
-                    map.put("specDocFileUrl1", beforeSpec.getSpecDocfileUrl1());
-                    map.put("specDocFileUrl2", beforeSpec.getSpecDocfileUrl2());
+                    map.put("specDocFileUrl1", beforeSpec.getSpecDocFileUrl1());
+                    map.put("specDocFileUrl2", beforeSpec.getSpecDocFileUrl2());
 
                     result.add(map);
                 });

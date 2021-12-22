@@ -76,24 +76,24 @@ public class BeforeSpecification {
     String dlvrDaynum;
 
     /*규격서화일1*/
-    @Column(name = "spec_docfile_url1")
-    String specDocfileUrl1;
+    @Column(name = "spec_doc_file_url1")
+    String specDocFileUrl1;
 
     /*규격서화일2*/
-    @Column(name = "spec_docfile_url2")
-    String specDocfileUrl2;
+    @Column(name = "spec_doc_file_url2")
+    String specDocFileUrl2;
 
     /*규격서화일3*/
     @Column(name = "spec_docfile_url3")
-    String specDocfileUrl3;
+    String specDocFileUrl3;
 
     /*규격서화일4*/
-    @Column(name = "spec_docfile_url4")
-    String specDocfileUrl4;
+    @Column(name = "spec_doc_file_url4")
+    String specDocFileUrl4;
 
     /*규격서화일5*/
-    @Column(name = "spec_docfile_url5")
-    String specDocfileUrl5;
+    @Column(name = "spec_doc_file_url5")
+    String specDocFileUrl5;
 
     /*물품상세목록 [사전규격물품순번^세부품명번호^세부품명],*/
     @Column(name = "prdct_dtl_list")
@@ -112,7 +112,7 @@ public class BeforeSpecification {
     LocalDateTime interfaceDt;
 
     @Builder
-    public BeforeSpecification(String bfSpecRgstNo, String rgstDt, String bsnsDivNm, String refNo, String prdctClsfcNoNm, String orderInsttNm, String rlDminsttNm, String asignBdgtAmt, String rcptDt, String opninRgstClseDt, String ofclTelNo, String ofclNm, String swBizObjYn, String dlvrTmlmtDt, String dlvrDaynum, String specDocfileUrl1, String specDocfileUrl2, String specDocfileUrl3, String specDocfileUrl4, String specDocfileUrl5, String prdctDtlList, String chgDt, String bidNtceNoList, LocalDateTime interfaceDt) {
+    public BeforeSpecification(String bfSpecRgstNo, String rgstDt, String bsnsDivNm, String refNo, String prdctClsfcNoNm, String orderInsttNm, String rlDminsttNm, String asignBdgtAmt, String rcptDt, String opninRgstClseDt, String ofclTelNo, String ofclNm, String swBizObjYn, String dlvrTmlmtDt, String dlvrDaynum, String specDocFileUrl1, String specDocFileUrl2, String specDocFileUrl3, String specDocFileUrl4, String specDocFileUrl5, String prdctDtlList, String chgDt, String bidNtceNoList, LocalDateTime interfaceDt) {
         this.bfSpecRgstNo = bfSpecRgstNo;
         this.rgstDt = rgstDt;
         this.bsnsDivNm = bsnsDivNm;
@@ -128,11 +128,11 @@ public class BeforeSpecification {
         this.swBizObjYn = swBizObjYn;
         this.dlvrTmlmtDt = dlvrTmlmtDt;
         this.dlvrDaynum = dlvrDaynum;
-        this.specDocfileUrl1 = specDocfileUrl1;
-        this.specDocfileUrl2 = specDocfileUrl2;
-        this.specDocfileUrl3 = specDocfileUrl3;
-        this.specDocfileUrl4 = specDocfileUrl4;
-        this.specDocfileUrl5 = specDocfileUrl5;
+        this.specDocFileUrl1 = specDocFileUrl1;
+        this.specDocFileUrl2 = specDocFileUrl2;
+        this.specDocFileUrl3 = specDocFileUrl3;
+        this.specDocFileUrl4 = specDocFileUrl4;
+        this.specDocFileUrl5 = specDocFileUrl5;
         this.prdctDtlList = prdctDtlList;
         this.chgDt = chgDt;
         this.bidNtceNoList = bidNtceNoList;

@@ -22,8 +22,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBeforeSpec() throws IOException {
         //scheduleService.getBeforeSpecification();
 
-        String dateFrom = "202112090000";
-        String dateTo = "202112092359";
+        String dateFrom = "202112010000";
+        String dateTo = "202112222359";
         openapiService.callApiForBeforeSpecification(dateFrom, dateTo);
     }
 
