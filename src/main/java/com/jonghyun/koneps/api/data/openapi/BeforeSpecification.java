@@ -84,7 +84,7 @@ public class BeforeSpecification {
     String specDocFileUrl2;
 
     /*규격서화일3*/
-    @Column(name = "spec_docfile_url3")
+    @Column(name = "spec_doc_file_url3")
     String specDocFileUrl3;
 
     /*규격서화일4*/

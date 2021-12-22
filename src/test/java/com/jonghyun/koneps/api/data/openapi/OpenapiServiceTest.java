@@ -23,7 +23,7 @@ public class OpenapiServiceTest {
         //scheduleService.getBeforeSpecification();
 
         String dateFrom = "202112010000";
-        String dateTo = "202112222359";
+        String dateTo = "202112212359";
         openapiService.callApiForBeforeSpecification(dateFrom, dateTo);
     }
 
