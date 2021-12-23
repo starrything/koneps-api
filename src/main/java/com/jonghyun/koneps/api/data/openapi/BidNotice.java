@@ -95,6 +95,54 @@ public class BidNotice {
     @Column(name = "openg_dt")
     String opengDt;
 
+    /*공고규격서URL1*/
+    @Column(name = "ntce_spec_doc_url1")
+    String ntceSpecDocUrl1;
+    @Column(name = "ntce_spec_doc_url2")
+    String ntceSpecDocUrl2;
+    @Column(name = "ntce_spec_doc_url3")
+    String ntceSpecDocUrl3;
+    @Column(name = "ntce_spec_doc_url4")
+    String ntceSpecDocUrl4;
+    @Column(name = "ntce_spec_doc_url5")
+    String ntceSpecDocUrl5;
+    @Column(name = "ntce_spec_doc_url6")
+    String ntceSpecDocUrl6;
+    @Column(name = "ntce_spec_doc_url7")
+    String ntceSpecDocUrl7;
+    @Column(name = "ntce_spec_doc_url8")
+    String ntceSpecDocUrl8;
+    @Column(name = "ntce_spec_doc_url9")
+    String ntceSpecDocUrl9;
+    @Column(name = "ntce_spec_doc_url10")
+    String ntceSpecDocUrl10;
+
+    /*공고규격파일명1*/
+    @Column(name = "ntce_spec_file_nm1")
+    String ntceSpecFileNm1;
+    @Column(name = "ntce_spec_file_nm2")
+    String ntceSpecFileNm2;
+    @Column(name = "ntce_spec_file_nm3")
+    String ntceSpecFileNm3;
+    @Column(name = "ntce_spec_file_nm4")
+    String ntceSpecFileNm4;
+    @Column(name = "ntce_spec_file_nm5")
+    String ntceSpecFileNm5;
+    @Column(name = "ntce_spec_file_nm6")
+    String ntceSpecFileNm6;
+    @Column(name = "ntce_spec_file_nm7")
+    String ntceSpecFileNm7;
+    @Column(name = "ntce_spec_file_nm8")
+    String ntceSpecFileNm8;
+    @Column(name = "ntce_spec_file_nm9")
+    String ntceSpecFileNm9;
+    @Column(name = "ntce_spec_file_nm10")
+    String ntceSpecFileNm10;
+
+    /*재입찰허용여부*/
+    @Column(name = "rbid_permsn_yn")
+    String rbidPermsnYn;
+
     /*예정가격결정방법명*/
     @Column(name = "prearng_prce_dcsn_mthd_nm")
     String prearngPrceDcsnMthdNm;
@@ -184,7 +232,11 @@ public class BidNotice {
     LocalDateTime interfaceDt;
 
     @Builder
-    public BidNotice(String bidNtceNo, String bidNtceOrd, String reNtceYn, String rgstTyNm, String ntceKindNm, String bidNtceDt, String bidNtceNm, String ntceInsttCd, String ntceInsttNm, String dminsttCd, String dminsttNm, String bidMethdNm, String cntrctCnclsMthdNm, String ntceInsttOfclNm, String ntceInsttOfclTelNo, String ntceInsttOfclEmailAdrs, String exctvNm, String bidGeginDt, String bidClseDt, String opengDt, String prearngPrceDcsnMthdNm, String totPrdprcNum, String drwtPrdprcNum, String asignBdgtAmt, String presmptPrce, String opengPlce, String dcmtgOprtnDt, String dcmtgOprtnPlce, String bidNtceDtlUrl, String bidNtceUrl, String crdtrNm, String cmmnSpldmdMethdNm, String sucsfbidMthdCd, String sucsfbidMthdNm, String dsgntCmptYn, String linkInsttNm, String dminsttOfclEmailAdrs, String rbidOpengDt, String indstrytyLmtYn, String rgstDt, String chgDt, LocalDateTime interfaceDt) {
+    public BidNotice(String bidNtceNo, String bidNtceOrd, String reNtceYn, String rgstTyNm, String ntceKindNm, String bidNtceDt, String bidNtceNm, String ntceInsttCd, String ntceInsttNm, String dminsttCd, String dminsttNm, String bidMethdNm, String cntrctCnclsMthdNm, String ntceInsttOfclNm, String ntceInsttOfclTelNo, String ntceInsttOfclEmailAdrs, String exctvNm, String bidGeginDt, String bidClseDt, String opengDt,
+                     String ntceSpecDocUrl1, String ntceSpecDocUrl2, String ntceSpecDocUrl3, String ntceSpecDocUrl4, String ntceSpecDocUrl5, String ntceSpecDocUrl6, String ntceSpecDocUrl7, String ntceSpecDocUrl8, String ntceSpecDocUrl9, String ntceSpecDocUrl10,
+                     String ntceSpecFileNm1, String ntceSpecFileNm2, String ntceSpecFileNm3, String ntceSpecFileNm4, String ntceSpecFileNm5, String ntceSpecFileNm6, String ntceSpecFileNm7, String ntceSpecFileNm8, String ntceSpecFileNm9, String ntceSpecFileNm10,
+                     String rbidPermsnYn,
+                     String prearngPrceDcsnMthdNm, String totPrdprcNum, String drwtPrdprcNum, String asignBdgtAmt, String presmptPrce, String opengPlce, String dcmtgOprtnDt, String dcmtgOprtnPlce, String bidNtceDtlUrl, String bidNtceUrl, String crdtrNm, String cmmnSpldmdMethdNm, String sucsfbidMthdCd, String sucsfbidMthdNm, String dsgntCmptYn, String linkInsttNm, String dminsttOfclEmailAdrs, String rbidOpengDt, String indstrytyLmtYn, String rgstDt, String chgDt, LocalDateTime interfaceDt) {
         this.bidNtceNo = bidNtceNo;
         this.bidNtceOrd = bidNtceOrd;
         this.reNtceYn = reNtceYn;
@@ -205,6 +257,27 @@ public class BidNotice {
         this.bidGeginDt = bidGeginDt;
         this.bidClseDt = bidClseDt;
         this.opengDt = opengDt;
+        this.ntceSpecDocUrl1 = ntceSpecDocUrl1;
+        this.ntceSpecDocUrl2 = ntceSpecDocUrl2;
+        this.ntceSpecDocUrl3 = ntceSpecDocUrl3;
+        this.ntceSpecDocUrl4 = ntceSpecDocUrl4;
+        this.ntceSpecDocUrl5 = ntceSpecDocUrl5;
+        this.ntceSpecDocUrl6 = ntceSpecDocUrl6;
+        this.ntceSpecDocUrl7 = ntceSpecDocUrl7;
+        this.ntceSpecDocUrl8 = ntceSpecDocUrl8;
+        this.ntceSpecDocUrl9 = ntceSpecDocUrl9;
+        this.ntceSpecDocUrl10 = ntceSpecDocUrl10;
+        this.ntceSpecFileNm1 = ntceSpecFileNm1;
+        this.ntceSpecFileNm2 = ntceSpecFileNm2;
+        this.ntceSpecFileNm3 = ntceSpecFileNm3;
+        this.ntceSpecFileNm4 = ntceSpecFileNm4;
+        this.ntceSpecFileNm5 = ntceSpecFileNm5;
+        this.ntceSpecFileNm6 = ntceSpecFileNm6;
+        this.ntceSpecFileNm7 = ntceSpecFileNm7;
+        this.ntceSpecFileNm8 = ntceSpecFileNm8;
+        this.ntceSpecFileNm9 = ntceSpecFileNm9;
+        this.ntceSpecFileNm10 = ntceSpecDocUrl10;
+        this.rbidPermsnYn = rbidPermsnYn;
         this.prearngPrceDcsnMthdNm = prearngPrceDcsnMthdNm;
         this.totPrdprcNum = totPrdprcNum;
         this.drwtPrdprcNum = drwtPrdprcNum;
