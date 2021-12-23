@@ -176,7 +176,7 @@ public class OpenapiServiceImpl implements OpenapiService {
         /*검색하고자하는 국제구분코드 국내:1, 국제:2(방위사업청 연계건의 경우 아래 내용 참고하여 검색) 국내/시설 입찰 공고일 경우 : 1, 국외 입찰 공고일 경우 : 2*/
         urlBuilder.append("&" + URLEncoder.encode("intrntnlDivCd", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8"));
         /*입찰마감건을 제외하고 검색하고자 하는 경우 Y*/
-        urlBuilder.append("&" + URLEncoder.encode("bidClseExcpYn", "UTF-8") + "=" + URLEncoder.encode("Y", "UTF-8"));
+        urlBuilder.append("&" + URLEncoder.encode("bidClseExcpYn", "UTF-8") + "=" + URLEncoder.encode("N", "UTF-8"));
         /*검색하고자하는 업종명, ※ 업종명 일부 입력시에도 조회 가능(방위사업청 연계건의 경우 : 면허제한목록(lcnsLmttList) 내 업종명으로 검색)*/
         urlBuilder.append("&" + URLEncoder.encode("indstrytyNm", "UTF-8") + "=" + URLEncoder.encode("소프트웨어", "UTF-8"));
 

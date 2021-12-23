@@ -31,8 +31,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBidNotice() throws IOException {
         //scheduleService.getBidNotice();
 
-        String dateFrom = "202112090000";
-        String dateTo = "202112092359";
+        String dateFrom = "202112190000";
+        String dateTo = "202112222359";
         openapiService.callApiForBidNotice(dateFrom, dateTo);
     }
 }

@@ -36,6 +36,14 @@ public class BidNoticeServiceImpl implements BidNoticeService {
                     map.put("bidClseDt", bidNotice.getBidClseDt());
                     map.put("opengDt", bidNotice.getOpengDt());
                     map.put("sucsfbidMthdNm", bidNotice.getSucsfbidMthdNm());
+                    map.put("ntceSpecDocUrl1", bidNotice.getNtceSpecDocUrl1());
+                    map.put("ntceSpecDocUrl2", bidNotice.getNtceSpecDocUrl2());
+                    map.put("ntceSpecDocUrl3", bidNotice.getNtceSpecDocUrl3());
+                    map.put("ntceSpecFileNm1", bidNotice.getNtceSpecFileNm1());
+                    map.put("ntceSpecFileNm2", bidNotice.getNtceSpecFileNm2());
+                    map.put("ntceSpecFileNm3", bidNotice.getNtceSpecFileNm3());
+                    map.put("bidNtceDtlUrl", bidNotice.getBidNtceDtlUrl());
+                    map.put("bidNtceUrl", bidNotice.getBidNtceUrl());
                     map.put("rgstDt", bidNotice.getRgstDt());
 
                     result.add(map);
