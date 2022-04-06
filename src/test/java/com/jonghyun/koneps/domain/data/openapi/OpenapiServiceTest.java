@@ -1,5 +1,6 @@
 package com.jonghyun.koneps.domain.data.openapi;
 
+import com.jonghyun.koneps.domain.openapi.OpenapiService;
 import com.jonghyun.koneps.global.schedule.ScheduleService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,6 +1,6 @@
 package com.jonghyun.koneps.global.schedule;
 
-import com.jonghyun.koneps.domain.data.openapi.OpenapiService;
+import com.jonghyun.koneps.domain.openapi.OpenapiService;
 import com.jonghyun.koneps.global.mail.MailService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
