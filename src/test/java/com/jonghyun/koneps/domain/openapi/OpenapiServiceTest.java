@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.data.openapi;
+package com.jonghyun.koneps.domain.openapi;
 
 import com.jonghyun.koneps.domain.openapi.OpenapiService;
 import com.jonghyun.koneps.global.schedule.ScheduleService;
@@ -23,8 +23,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBeforeSpec() throws IOException {
         //scheduleService.getBeforeSpecification();
 
-        String dateFrom = "202112010000";
-        String dateTo = "202112212359";
+        String dateFrom = "202204070000";
+        String dateTo = "202204072359";
         openapiService.callApiForBeforeSpecification(dateFrom, dateTo);
     }
 
@@ -32,8 +32,8 @@ public class OpenapiServiceTest {
     public void getOpenapiBidNotice() throws IOException {
         //scheduleService.getBidNotice();
 
-        String dateFrom = "202112190000";
-        String dateTo = "202112222359";
+        String dateFrom = "202204070000";
+        String dateTo = "202204072359";
         openapiService.callApiForBidNotice(dateFrom, dateTo);
     }
 }

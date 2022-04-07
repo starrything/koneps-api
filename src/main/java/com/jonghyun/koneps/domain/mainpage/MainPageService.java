@@ -6,7 +6,4 @@ import java.util.Map;
 
 @Transactional
 public interface MainPageService {
-    List<Map<String, Object>> getRecentDashboardList(String loginId);
-
-    List<Map<String, Object>> getRecentChartList(String loginId);
 }

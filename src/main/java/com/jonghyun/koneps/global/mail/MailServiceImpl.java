@@ -21,7 +21,7 @@ public class MailServiceImpl implements MailService {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "UTF-8");
 
             if (from == null) {
-                from = "system@iljin.co.kr";
+                from = "system@jonghyun.co.kr";
             }
             mimeMessage.setContent(text, "text/html; charset=utf-8");
 
