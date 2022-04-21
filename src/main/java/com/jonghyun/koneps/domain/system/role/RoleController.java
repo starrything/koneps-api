@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.system;
+package com.jonghyun.koneps.domain.system.role;
 
 import com.jonghyun.koneps.global.security.role.RoleDto;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/role")
+@RequestMapping("/api/v1/role")
 public class RoleController {
     private final RoleService roleService;
 

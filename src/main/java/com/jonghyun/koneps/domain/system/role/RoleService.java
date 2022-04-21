@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.system;
+package com.jonghyun.koneps.domain.system.role;
 
 import com.jonghyun.koneps.global.security.role.RoleDto;
 import org.springframework.data.jpa.repository.Modifying;

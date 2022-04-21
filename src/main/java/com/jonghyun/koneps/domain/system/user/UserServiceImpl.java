@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.system;
+package com.jonghyun.koneps.domain.system.user;
 
 import com.jonghyun.koneps.domain.system.seq.SeqService;
 import com.jonghyun.koneps.global.security.AuthToken;
@@ -55,9 +55,18 @@ public class UserServiceImpl implements UserService {
         if (StringUtils.isBlank(loginId)) {
             loginId = "system";
         }
-        userRepository.findByUsername(userDto.getUsername()).ifPresent(c -> {
-            throw new RuntimeException("User Name(" + userDto.getUsername() + ") is already registered...");
+
+        String email = userDto.getEmail();
+        String username = email.substring(0, email.indexOf("@"));
+        userRepository.findByEmail(email).ifPresent(c -> {
+            throw new RuntimeException("Email(" + email + ") is already registered...");
         });
+
+        List<User> usernameList = userRepository.findByUsernameContains(username);
+        if(usernameList.size() > 0) {
+            username += usernameList.size();
+        }
+
         try {
             String finalLoginId = loginId;
             userRepository.findByUsername(userDto.getUsername()).ifPresent(c -> {
@@ -374,9 +383,14 @@ public class UserServiceImpl implements UserService {
 
         String email = userDto.getEmail();
         String username = email.substring(0, email.indexOf("@"));
-        userRepository.findByUsername(username).ifPresent(c -> {
-            throw new RuntimeException("User Name(" + username + ") is already registered...");
+        userRepository.findByEmail(email).ifPresent(c -> {
+            throw new RuntimeException("Email(" + email + ") is already registered...");
         });
+
+        List<User> usernameList = userRepository.findByUsernameContains(username);
+        if(usernameList.size() > 0) {
+            username += usernameList.size();
+        }
 
         try {
             UserRole userRole = new UserRole();

@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.system;
+package com.jonghyun.koneps.domain.system.user;
 
 import com.jonghyun.koneps.global.security.AuthToken;
 import com.jonghyun.koneps.global.security.user.UserDto;

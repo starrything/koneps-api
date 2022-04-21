@@ -1,4 +1,4 @@
-package com.jonghyun.koneps.domain.system;
+package com.jonghyun.koneps.domain.system.user;
 
 import com.jonghyun.koneps.global.security.user.UserDto;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
     private final UserService userService;
 

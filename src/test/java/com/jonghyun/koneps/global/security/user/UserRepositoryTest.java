@@ -1,6 +1,6 @@
 package com.jonghyun.koneps.global.security.user;
 
-import com.jonghyun.koneps.domain.system.UserService;
+import com.jonghyun.koneps.domain.system.user.UserService;
 import com.jonghyun.koneps.global.security.role.UserRole;
 import com.jonghyun.koneps.global.security.role.UserRoleRepository;
 import org.junit.jupiter.api.Test;
