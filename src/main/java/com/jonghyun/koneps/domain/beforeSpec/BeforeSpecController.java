@@ -11,7 +11,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/g2b/beforespec")
+@RequestMapping("/api/v1/g2b/beforespec")
 public class BeforeSpecController {
     private final BeforeSpecService beforeSpecService;
 

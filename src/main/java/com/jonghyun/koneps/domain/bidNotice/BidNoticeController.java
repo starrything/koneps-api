@@ -11,7 +11,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/g2b/bidnotice")
+@RequestMapping("/api/v1/g2b/bidnotice")
 public class BidNoticeController {
     private final BidNoticeService bidNoticeService;
 

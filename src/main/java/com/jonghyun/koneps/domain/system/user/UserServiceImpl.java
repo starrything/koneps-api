@@ -129,20 +129,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<AuthToken> login(UserDto userDto, HttpSession session, HttpServletRequest request) {
         try {
+            String loginEmail = userDto.getEmail();
             String loginId = userDto.getUsername();
             String loginPw = userDto.getPassword();
             String loginToken = userDto.getToken();
 
-            Optional<User> user = userRepository.findByUsername(loginId);
+            Optional<User> user = userRepository.findByEmail(loginEmail);
+            loginId = user.get().getUsername();
 
+            String finalLoginId = loginId;
             Optional<AuthToken> result =
                     user.map(obj -> {
                         // 1. username, password를 조합하여 UsernamePasswordAuthenticationToken 생성
-                        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(loginId, loginPw);
+                        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(finalLoginId, loginPw);
                         if (loginToken != null) {
                             // Create Granted Authority Rules
                             Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-                            token = new UsernamePasswordAuthenticationToken(loginId, null, grantedAuthorities);
+                            token = new UsernamePasswordAuthenticationToken(finalLoginId, null, grantedAuthorities);
                         } else {
                             // Form login
                             // 2. Form 로그인 검증을 위해 UsernamePasswordAuthenticationToken 을 authenticationManager 의 인스턴스로 전달
@@ -159,7 +162,7 @@ public class UserServiceImpl implements UserService {
                         /* login success */
                         LoginHistory loginHistory = new LoginHistory(
                                 logId,
-                                loginId,
+                                finalLoginId,
                                 clientIp,
                                 userDto.getConnectMethod(),
                                 "",
@@ -170,14 +173,14 @@ public class UserServiceImpl implements UserService {
 
                         if (!StringUtils.isEmpty(userDto.getAttribute1())) {
                             /* from mobile */
-                            userRepository.findByUsername(loginId).ifPresent(c -> {
+                            userRepository.findByUsername(finalLoginId).ifPresent(c -> {
                                 c.updateAttribute1(userDto.getAttribute1());
 
                                 // save Mobile token (String value)
                                 userRepository.save(c);
                             });
                         }
-                        return getAuthToken(session, loginId, obj, token);
+                        return getAuthToken(session, finalLoginId, obj, token);
                     });
 
             return result.map(authToken -> new ResponseEntity<>(authToken, HttpStatus.OK))

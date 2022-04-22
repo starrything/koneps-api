@@ -14,7 +14,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/main")
+@RequestMapping("/api/v1/main")
 public class MainPageController {
     private final MainPageService mainPageService;
 
