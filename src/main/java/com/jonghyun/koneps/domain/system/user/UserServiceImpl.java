@@ -244,12 +244,15 @@ public class UserServiceImpl implements UserService {
         String loginId = util.getLoginId();
 
         userRepository.findByUsername(loginId).ifPresent(c -> {
-            c.updatePersonalUserInfo(userDto.getFirstName(),
+            c.updatePersonalUserInfo(
+                    userDto.getFirstName(),
                     userDto.getLastName(),
                     userDto.getTel(),
                     userDto.getEmail(),
                     userDto.getAddress1(),
-                    userDto.getAddress2());
+                    userDto.getAddress2(),
+                    loginId,
+                    LocalDateTime.now());
 
             userRepository.save(c);
         });
@@ -335,15 +338,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public ResponseEntity<UserDto> editUser(UserDto userDto) {
         String loginId = util.getLoginId();
-        if (StringUtils.isBlank(loginId)) {
-            loginId = "system";
-        }
 
         try {
             String finalLoginId = loginId;
             userRepository.findByUsername(userDto.getUsername()).ifPresent(c -> {
                 //1. process user data (edit User)
-                c.editUser(userDto.getFirstName(),
+                c.editUser(
+                        userDto.getFirstName(),
                         userDto.getLastName(),
                         userDto.getTel(),
                         userDto.getEmail(),
@@ -360,7 +361,8 @@ public class UserServiceImpl implements UserService {
                 for (String role :
                         userDto.getRoles()) {
                     UserRole userRole = new UserRole();
-                    userRole.newUserRole(c.getUsername(),
+                    userRole.newUserRole(
+                            c.getUsername(),
                             role,
                             finalLoginId,
                             LocalDateTime.now());

@@ -24,6 +24,7 @@ public class UserController {
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
         return userService.createUser(userDto);
     }
+
     @PutMapping
     public ResponseEntity<UserDto> editUser(@RequestBody UserDto userDto) {
         return userService.editUser(userDto);

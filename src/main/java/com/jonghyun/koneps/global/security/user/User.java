@@ -97,13 +97,15 @@ public class User {
         return this;
     }
 
-    public User updatePersonalUserInfo(String firstName, String lastName, String tel, String email, String address1, String address2) {
+    public User updatePersonalUserInfo(String firstName, String lastName, String tel, String email, String address1, String address2, String modifiedBy, LocalDateTime modifiedDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.tel = tel;
         this.email = email;
         this.address1 = address1;
         this.address2 = address2;
+        this.modifiedBy = modifiedBy;
+        this.modifiedDate = modifiedDate;
 
         return this;
     }
