@@ -230,7 +230,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<String> resetPassword(UserDto userDto) {
         userRepository.findByUsername(util.getLoginId()).ifPresent(c -> {
-            c.resetPassword(passwordEncoder.encode(userDto.getPassword()));
+            c.resetPassword(passwordEncoder.encode(userDto.getPassword()), util.getLoginId(), LocalDateTime.now());
 
             userRepository.save(c);
         });

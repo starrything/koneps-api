@@ -69,8 +69,7 @@ public class User {
     @Column(name = "modified_dt")
     LocalDateTime modifiedDate;
 
-    @OneToMany
-    @JoinColumn(name = "username")
+    @OneToMany(mappedBy = "username", cascade = {CascadeType.ALL}, orphanRemoval=true)
     List<UserRole> roles;
 
     @Builder
@@ -123,8 +122,10 @@ public class User {
         return this;
     }
 
-    public User resetPassword(String password) {
+    public User resetPassword(String password, String modifiedBy, LocalDateTime modifiedDate) {
         this.password = password;
+        this.modifiedBy = modifiedBy;
+        this.modifiedDate = modifiedDate;
 
         return this;
     }
