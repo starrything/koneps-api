@@ -38,7 +38,7 @@ public class RoleControllerTest {
 
     @Test
     public void getRoleListTest() throws Exception {
-        this.mockMvc.perform(get("/api/role/list")
+        this.mockMvc.perform(get("/api/v1/role/list")
                         .header("Host", "localhost:3301"))
                 .andExpect(status().isOk());
 

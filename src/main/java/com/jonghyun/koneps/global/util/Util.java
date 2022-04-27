@@ -74,4 +74,8 @@ public class Util {
         }
         return true;
     }
+
+    public static void checkLoginIdValidation() {
+        //TODO
+    }
 }
