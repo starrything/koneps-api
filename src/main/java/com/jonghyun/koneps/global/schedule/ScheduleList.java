@@ -27,22 +27,22 @@ public class ScheduleList {
     /**
      * 사전규격공개
      * 오픈API 인터페이스
-     * Desc. 2시간 간격으로 데이터 수집
+     * Desc. 30분 간격으로 데이터 수집
      * */
-    @Scheduled(fixedRate = 7200000)
+    @Scheduled(fixedRate = 1800000)
     public void getBeforeSpecification() throws IOException {
         //TODO: build 시 아래 주석 해제
-        //scheduleService.getBeforeSpecification();
+        //scheduleService.getBeforeSpecification("", "");
     }
 
     /**
      * 입찰공고
      * 오픈API 인터페이스
-     * Desc. 2시간 간격으로 데이터 수집
+     * Desc. 30분 간격으로 데이터 수집
      * */
-    @Scheduled(fixedRate = 7200000)
+    @Scheduled(fixedRate = 1800000)
     public void getBidNotice() throws IOException {
         //TODO: build 시 아래 주석 해제
-        //scheduleService.getBidNotice();
+        //scheduleService.getBidNotice("", "");
     }
 }

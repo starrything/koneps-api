@@ -6,6 +6,6 @@ public interface ScheduleService {
 
     void runNoticeMailing();
 
-    void getBeforeSpecification() throws IOException;
-    void getBidNotice() throws IOException;
+    void getBeforeSpecification(String dateFrom, String dateTo) throws IOException;
+    void getBidNotice(String dateFrom, String dateTo) throws IOException;
 }

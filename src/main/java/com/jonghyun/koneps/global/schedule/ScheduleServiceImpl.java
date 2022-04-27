@@ -97,13 +97,13 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
-    public void getBeforeSpecification() throws IOException {
-        openapiService.callApiForBeforeSpecification("", "");
+    public void getBeforeSpecification(String dateFrom, String dateTo) throws IOException {
+        openapiService.callApiForBeforeSpecification(dateFrom, dateTo);
     }
 
     @Override
-    public void getBidNotice() throws IOException {
-        openapiService.callApiForBidNotice("", "");
+    public void getBidNotice(String dateFrom, String dateTo) throws IOException {
+        openapiService.callApiForBidNotice(dateFrom, dateTo);
     }
 
 }

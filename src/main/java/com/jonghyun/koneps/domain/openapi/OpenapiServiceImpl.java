@@ -3,6 +3,8 @@ package com.jonghyun.koneps.domain.openapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.util.internal.StringUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,16 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@PropertySource("classpath:config.properties")
 public class OpenapiServiceImpl implements OpenapiService {
     private final BeforeSpecificationRepository beforeSpecificationRepository;
     private final BidNoticeRepository bidNoticeRepository;
+
+    @Value("${g2b.beforeSpecification.ServiceKey}")
+    private String bfServiceKey;
+
+    @Value("${g2b.bidNotice.ServiceKey}")
+    private String bnServiceKey;
 
     @Override
     @Modifying
@@ -39,7 +48,7 @@ public class OpenapiServiceImpl implements OpenapiService {
         /*URL*/
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/HrcspSsstndrdInfoService/getPublicPrcureThngInfoServcPPSSrch");
         /*Service Key*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8"));
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode(bfServiceKey, "UTF-8"));
         /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8"));
         /*페이지 번호*/
@@ -159,7 +168,7 @@ public class OpenapiServiceImpl implements OpenapiService {
         /*URL*/
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1230000/BidPublicInfoService02/getBidPblancListInfoServcPPSSrch");
         /*Service Key*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode("B1CsUiO26Y56VDOKIParM6z394FXvTQC0rafsREBzSnOl8Cc1PUFY98LOcqKq5OahD5s2AhvszA2AIIYj0KXvg==", "UTF-8"));
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + URLEncoder.encode(bnServiceKey, "UTF-8"));
         /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("900", "UTF-8"));
         /*페이지 번호*/
